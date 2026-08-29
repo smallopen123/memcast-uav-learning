@@ -5,7 +5,6 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache"}
 TEXT_SUFFIXES = {".py", ".md", ".toml", ".yml", ".yaml", ".cff", ".txt", ".example"}
