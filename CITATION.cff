@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this teaching repository, cite both this software and the original MemCast paper."
+title: "MemCast-UAV Learning Lab"
+type: software
+version: 0.1.0
+date-released: 2026-08-29
+license: MIT
+repository-code: "https://github.com/smallopen123/memcast-uav-learning"
+preferred-citation:
+  type: article
+  title: "MemCast: Memory-Driven Time Series Forecasting with Experience-Conditioned Reasoning"
+  authors:
+    - family-names: Tao
+      given-names: Xiaoyu
+    - family-names: Cheng
+      given-names: Mingyue
+  year: 2026
+  identifiers:
+    - type: url
+      value: "https://arxiv.org/abs/2602.03164"
+
