@@ -4,6 +4,14 @@
 
 > 本仓库是独立编写的教学实现，并非 MemCast 官方代码，也不宣称复现论文指标。思想来源与引用见下文。
 
+## 从这里开始：可点击式教程
+
+不要先运行全部代码。请点击下面的入口，从环境检查开始；完成一页后，使用页面底部的“下一课”继续：
+
+### [▶ 从第 0 步开始：安装并验证环境](tutorial/00_setup.md)
+
+[教程总目录](tutorial/README.md) → [01 窗口](tutorial/01_windowing.md) → [02 特征](tutorial/02_features.md) → [03 检索](tutorial/03_retrieval.md) → [04 记忆](tutorial/04_memory.md) → [05 反思](tutorial/05_reflection.md) → [06 置信度](tutorial/06_confidence.md) → [07 端到端](tutorial/07_end_to_end.md) → [08 意图](tutorial/08_intent.md) → [接入真实无人机数据](docs/03_uav_dataset_adapter.md)
+
 ## 你会学到什么
 
 完成八个练习后，你应该能够解释并亲手实现：
@@ -37,16 +45,16 @@ python -m pytest -q
 
 ## 学习路线
 
-| 课程 | 运行命令 | 核心问题 |
+| 课程（点击进入） | 运行命令 | 核心问题 |
 |---|---|---|
-| 01 窗口 | `python -m lessons.lesson_01_windowing` | 模型到底看到了哪些历史和未来？ |
-| 02 特征 | `python -m lessons.lesson_02_features` | 轨迹如何变成可检索特征？ |
-| 03 检索 | `python -m lessons.lesson_03_retrieval` | 相似机动如何被找出来？ |
-| 04 记忆 | `python -m lessons.lesson_04_memory` | 一个经验条目应保存什么？ |
-| 05 反思 | `python -m lessons.lesson_05_reflection` | 怎样拒绝或修正不可能的飞行轨迹？ |
-| 06 置信度 | `python -m lessons.lesson_06_confidence` | 如何避免用未来信息提前更新记忆？ |
-| 07 端到端 | `python -m lessons.lesson_07_end_to_end` | 各模块怎样构成完整预测流程？ |
-| 08 意图 | `python -m lessons.lesson_08_intent` | 意图怎样影响检索与候选生成？ |
+| [01 窗口](tutorial/01_windowing.md) | `python -m lessons.lesson_01_windowing` | 模型到底看到了哪些历史和未来？ |
+| [02 特征](tutorial/02_features.md) | `python -m lessons.lesson_02_features` | 轨迹如何变成可检索特征？ |
+| [03 检索](tutorial/03_retrieval.md) | `python -m lessons.lesson_03_retrieval` | 相似机动如何被找出来？ |
+| [04 记忆](tutorial/04_memory.md) | `python -m lessons.lesson_04_memory` | 一个经验条目应保存什么？ |
+| [05 反思](tutorial/05_reflection.md) | `python -m lessons.lesson_05_reflection` | 怎样拒绝或修正不可能的飞行轨迹？ |
+| [06 置信度](tutorial/06_confidence.md) | `python -m lessons.lesson_06_confidence` | 如何避免用未来信息提前更新记忆？ |
+| [07 端到端](tutorial/07_end_to_end.md) | `python -m lessons.lesson_07_end_to_end` | 各模块怎样构成完整预测流程？ |
+| [08 意图](tutorial/08_intent.md) | `python -m lessons.lesson_08_intent` | 意图怎样影响检索与候选生成？ |
 
 建议每学一节，都完成该文件末尾的 `TODO`，再运行对应测试。
 
@@ -101,5 +109,4 @@ S_{final}=S_{base}+w_c C+w_i I
 
 ## 下一步
 
-完成离线课程后，再按照 [无人机数据迁移指南](docs/03_uav_dataset_adapter.md) 接入真实数据。优先保证坐标系、采样率、序列划分和单位正确，然后再接入任何大模型。
-
+先进入 [可点击式教程](tutorial/README.md)。完成离线课程后，再按照 [无人机数据迁移指南](docs/03_uav_dataset_adapter.md) 接入真实数据。优先保证坐标系、采样率、序列划分和单位正确，然后再接入任何大模型。
