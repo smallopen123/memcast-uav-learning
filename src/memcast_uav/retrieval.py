@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import math
+from dataclasses import dataclass
 
 import numpy as np
 
@@ -93,4 +93,3 @@ def retrieve(
         )
     ranked.sort(key=lambda item: item.final_score, reverse=True)
     return ranked[: config.top_k]
-

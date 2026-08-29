@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import json
+from dataclasses import dataclass
 
 import numpy as np
 
@@ -165,4 +165,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

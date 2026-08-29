@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import numpy as np
 
-
 FEATURE_NAMES = (
     "mean_speed",
     "speed_std",
@@ -58,4 +57,3 @@ def translation_invariant_path(history: np.ndarray) -> np.ndarray:
     if positions.ndim != 2 or positions.shape[1] != 3 or len(positions) == 0:
         raise ValueError("history must have shape [time, 3]")
     return positions - positions[0]
-

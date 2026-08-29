@@ -1,10 +1,9 @@
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
-from typing import Sequence
 
 import numpy as np
-
 
 INTENTS = ("cruise", "turn_left", "turn_right", "climb", "descend")
 
@@ -164,4 +163,3 @@ def make_train_test_windows(
     if any(window.forecast_start < split_index for window in test):
         raise RuntimeError("test target starts before split")
     return train, test
-

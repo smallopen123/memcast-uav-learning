@@ -3,7 +3,6 @@ from __future__ import annotations
 import subprocess
 import sys
 
-
 LESSONS = [f"lessons.lesson_{index:02d}_{name}" for index, name in [
     (1, "windowing"),
     (2, "features"),
@@ -24,4 +23,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

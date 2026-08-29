@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import os
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
@@ -14,7 +14,7 @@ class QwenConfig:
     enable_thinking: bool = False
 
     @classmethod
-    def from_env(cls) -> "QwenConfig":
+    def from_env(cls) -> QwenConfig:
         api_key = (os.getenv("QWEN_API_KEY") or "").strip()
         if not api_key:
             raise RuntimeError("QWEN_API_KEY is not configured; offline lessons need no key")
@@ -44,4 +44,3 @@ def call_qwen(prompt: str, config: QwenConfig) -> str:
         extra_body={"enable_thinking": config.enable_thinking},
     )
     return response.choices[0].message.content or ""
-
