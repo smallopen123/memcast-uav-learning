@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -11,28 +12,41 @@ LINK_PATTERN = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 EXTERNAL_PREFIXES = ("http://", "https://", "mailto:", "#")
 
 
+def markdown_sources(document: Path) -> list[str]:
+    if document.suffix == ".md":
+        return [document.read_text(encoding="utf-8")]
+    notebook = json.loads(document.read_text(encoding="utf-8"))
+    return [
+        "".join(cell.get("source", []))
+        for cell in notebook.get("cells", [])
+        if cell.get("cell_type") == "markdown"
+    ]
+
+
 def relative_targets(document: Path) -> list[Path]:
     targets: list[Path] = []
-    text = document.read_text(encoding="utf-8")
-    for match in LINK_PATTERN.finditer(text):
-        raw_target = match.group(1).strip()
-        if raw_target.startswith(EXTERNAL_PREFIXES):
-            continue
-        target_without_anchor = raw_target.split("#", maxsplit=1)[0].strip()
-        if not target_without_anchor:
-            continue
-        if target_without_anchor.startswith("<") and target_without_anchor.endswith(">"):
-            target_without_anchor = target_without_anchor[1:-1]
-        targets.append((document.parent / target_without_anchor).resolve())
+    for text in markdown_sources(document):
+        for match in LINK_PATTERN.finditer(text):
+            raw_target = match.group(1).strip()
+            if raw_target.startswith(EXTERNAL_PREFIXES):
+                continue
+            target_without_anchor = raw_target.split("#", maxsplit=1)[0].strip()
+            if not target_without_anchor:
+                continue
+            if target_without_anchor.startswith("<") and target_without_anchor.endswith(">"):
+                target_without_anchor = target_without_anchor[1:-1]
+            targets.append((document.parent / target_without_anchor).resolve())
     return targets
 
 
 def main() -> None:
-    documents = [
-        path
-        for path in ROOT.rglob("*.md")
-        if not any(part in SKIP_PARTS for part in path.parts)
-    ]
+    documents = []
+    for suffix in ("*.md", "*.ipynb"):
+        documents.extend(
+            path
+            for path in ROOT.rglob(suffix)
+            if not any(part in SKIP_PARTS for part in path.parts)
+        )
     missing: list[str] = []
     checked = 0
     for document in documents:

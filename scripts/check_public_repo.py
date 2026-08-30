@@ -7,7 +7,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKIP_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache"}
-TEXT_SUFFIXES = {".py", ".md", ".toml", ".yml", ".yaml", ".cff", ".txt", ".example"}
+TEXT_SUFFIXES = {
+    ".py",
+    ".md",
+    ".ipynb",
+    ".toml",
+    ".yml",
+    ".yaml",
+    ".cff",
+    ".txt",
+    ".example",
+}
 PATTERNS = {
     "possible API key": re.compile(r"\bsk-[A-Za-z0-9_-]{16,}\b"),
     "Windows user path": re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+"),

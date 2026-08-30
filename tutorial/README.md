@@ -1,5 +1,7 @@
 # 可点击式逐步教程
 
+> 推荐使用新的 [Jupyter Notebook 分块课程](../notebooks/README.md)；本目录保留为纯文字讲解版。
+
 这里是仓库的学习入口。每一课都包含“读代码 → 运行 → 修改 → 测试 → 提交”五个动作，并在页面底部提供上一课和下一课。
 
 ## 使用方法
@@ -14,15 +16,15 @@
 
 | 顺序 | 页面 | 完成标志 |
 |---:|---|---|
-| 0 | [安装并验证环境](00_setup.md) | 能导入 `memcast_uav`，10 项测试通过 |
-| 1 | [时间窗口与无泄漏划分](01_windowing.md) | 能手算首个测试窗口索引 |
-| 2 | [三维轨迹运动学特征](02_features.md) | 能写出每个特征的单位 |
-| 3 | [余弦相似度 + DTW 组合检索](03_retrieval.md) | 能解释 `alpha=0/1` 的排名差异 |
-| 4 | [经验记忆的结构与构建](04_memory.md) | 能解释记忆条目的每个字段 |
-| 5 | [物理约束反思](05_reflection.md) | 能修复或拒绝非法候选轨迹 |
-| 6 | [因果动态置信度](06_confidence.md) | 不会提前使用未来真值 |
-| 7 | [端到端预测管线](07_end_to_end.md) | 能与恒速基线比较 |
-| 8 | [意图条件预测](08_intent.md) | 能说明意图来源和防止泄漏 |
+| 0 | [Notebook](../notebooks/00_setup.ipynb) · [文字版](00_setup.md) | 能导入 `memcast_uav`，10 项测试通过 |
+| 1 | [Notebook](../notebooks/01_windowing.ipynb) · [文字版](01_windowing.md) | 能手算首个测试窗口索引 |
+| 2 | [Notebook](../notebooks/02_features.ipynb) · [文字版](02_features.md) | 能写出每个特征的单位 |
+| 3 | [Notebook](../notebooks/03_retrieval.ipynb) · [文字版](03_retrieval.md) | 能解释 `alpha=0/1` 的排名差异 |
+| 4 | [Notebook](../notebooks/04_memory.ipynb) · [文字版](04_memory.md) | 能解释记忆条目的每个字段 |
+| 5 | [Notebook](../notebooks/05_reflection.ipynb) · [文字版](05_reflection.md) | 能修复或拒绝非法候选轨迹 |
+| 6 | [Notebook](../notebooks/06_confidence.ipynb) · [文字版](06_confidence.md) | 不会提前使用未来真值 |
+| 7 | [Notebook](../notebooks/07_end_to_end.ipynb) · [文字版](07_end_to_end.md) | 能与恒速基线比较 |
+| 8 | [Notebook](../notebooks/08_intent.ipynb) · [文字版](08_intent.md) | 能说明意图来源和防止泄漏 |
 | 9 | [接入真实无人机数据](../docs/03_uav_dataset_adapter.md) | 将真实飞行转换为统一窗口 |
 
 ## 遇到问题时

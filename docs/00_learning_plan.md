@@ -1,6 +1,6 @@
 # 逐步实践计划
 
-> 如果你想直接按页面逐课操作，请从 [第 0 步：安装并验证环境](../tutorial/00_setup.md) 开始，或打开 [可点击式教程总目录](../tutorial/README.md)。
+> 推荐从 [第 0 步 Notebook：安装并验证环境](../notebooks/00_setup.ipynb) 开始；也可以打开 [Notebook 总目录](../notebooks/README.md) 或 [纯文字教程目录](../tutorial/README.md)。
 
 不要先通读全部源码。每次只完成一节课，并用“输入—变换—输出—约束—测试”五个问题解释代码。
 

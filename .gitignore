@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+.ipynb_checkpoints/
+.notebook_runtime/
 *.egg-info/
 build/
 dist/
@@ -25,4 +27,3 @@ artifacts/
 .vscode/
 .DS_Store
 Thumbs.db
-

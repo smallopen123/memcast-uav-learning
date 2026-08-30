@@ -4,13 +4,15 @@
 
 > 本仓库是独立编写的教学实现，并非 MemCast 官方代码，也不宣称复现论文指标。思想来源与引用见下文。
 
-## 从这里开始：可点击式教程
+## 从这里开始：Jupyter 分块教程
 
-不要先运行全部代码。请点击下面的入口，从环境检查开始；完成一页后，使用页面底部的“下一课”继续：
+推荐使用 Notebook：每个知识点都是独立单元格，可以一格一格运行、观察和修改。
 
-### [▶ 从第 0 步开始：安装并验证环境](tutorial/00_setup.md)
+### [▶ 从第 0 步开始：打开环境准备 Notebook](notebooks/00_setup.ipynb)
 
-[教程总目录](tutorial/README.md) → [01 窗口](tutorial/01_windowing.md) → [02 特征](tutorial/02_features.md) → [03 检索](tutorial/03_retrieval.md) → [04 记忆](tutorial/04_memory.md) → [05 反思](tutorial/05_reflection.md) → [06 置信度](tutorial/06_confidence.md) → [07 端到端](tutorial/07_end_to_end.md) → [08 意图](tutorial/08_intent.md) → [接入真实无人机数据](docs/03_uav_dataset_adapter.md)
+[Notebook 总目录](notebooks/README.md) → [01 窗口](notebooks/01_windowing.ipynb) → [02 特征](notebooks/02_features.ipynb) → [03 检索](notebooks/03_retrieval.ipynb) → [04 记忆](notebooks/04_memory.ipynb) → [05 反思](notebooks/05_reflection.ipynb) → [06 置信度](notebooks/06_confidence.ipynb) → [07 端到端](notebooks/07_end_to_end.ipynb) → [08 意图](notebooks/08_intent.ipynb)
+
+如果更喜欢纯文字阅读，也保留了 [Markdown 教程目录](tutorial/README.md)。
 
 ## 你会学到什么
 
@@ -36,7 +38,10 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
+python -m pip install -e ".[dev,notebook]"
+jupyter lab
+
+# 或继续使用原始 Python 课程
 python scripts/run_all_lessons.py
 python -m pytest -q
 ```
@@ -47,14 +52,14 @@ python -m pytest -q
 
 | 课程（点击进入） | 运行命令 | 核心问题 |
 |---|---|---|
-| [01 窗口](tutorial/01_windowing.md) | `python -m lessons.lesson_01_windowing` | 模型到底看到了哪些历史和未来？ |
-| [02 特征](tutorial/02_features.md) | `python -m lessons.lesson_02_features` | 轨迹如何变成可检索特征？ |
-| [03 检索](tutorial/03_retrieval.md) | `python -m lessons.lesson_03_retrieval` | 相似机动如何被找出来？ |
-| [04 记忆](tutorial/04_memory.md) | `python -m lessons.lesson_04_memory` | 一个经验条目应保存什么？ |
-| [05 反思](tutorial/05_reflection.md) | `python -m lessons.lesson_05_reflection` | 怎样拒绝或修正不可能的飞行轨迹？ |
-| [06 置信度](tutorial/06_confidence.md) | `python -m lessons.lesson_06_confidence` | 如何避免用未来信息提前更新记忆？ |
-| [07 端到端](tutorial/07_end_to_end.md) | `python -m lessons.lesson_07_end_to_end` | 各模块怎样构成完整预测流程？ |
-| [08 意图](tutorial/08_intent.md) | `python -m lessons.lesson_08_intent` | 意图怎样影响检索与候选生成？ |
+| [01 窗口](notebooks/01_windowing.ipynb) | `python -m lessons.lesson_01_windowing` | 模型到底看到了哪些历史和未来？ |
+| [02 特征](notebooks/02_features.ipynb) | `python -m lessons.lesson_02_features` | 轨迹如何变成可检索特征？ |
+| [03 检索](notebooks/03_retrieval.ipynb) | `python -m lessons.lesson_03_retrieval` | 相似机动如何被找出来？ |
+| [04 记忆](notebooks/04_memory.ipynb) | `python -m lessons.lesson_04_memory` | 一个经验条目应保存什么？ |
+| [05 反思](notebooks/05_reflection.ipynb) | `python -m lessons.lesson_05_reflection` | 怎样拒绝或修正不可能的飞行轨迹？ |
+| [06 置信度](notebooks/06_confidence.ipynb) | `python -m lessons.lesson_06_confidence` | 如何避免用未来信息提前更新记忆？ |
+| [07 端到端](notebooks/07_end_to_end.ipynb) | `python -m lessons.lesson_07_end_to_end` | 各模块怎样构成完整预测流程？ |
+| [08 意图](notebooks/08_intent.ipynb) | `python -m lessons.lesson_08_intent` | 意图怎样影响检索与候选生成？ |
 
 建议每学一节，都完成该文件末尾的 `TODO`，再运行对应测试。
 
@@ -62,6 +67,7 @@ python -m pytest -q
 
 ```text
 memcast-uav-learning/
+├─ notebooks/               # 九个可逐单元格运行的 Jupyter 课程
 ├─ lessons/                 # 八个可独立运行的渐进练习
 ├─ src/memcast_uav/         # 最小、可测试的核心实现
 ├─ tests/                   # 与每个核心概念对应的测试
@@ -109,4 +115,4 @@ S_{final}=S_{base}+w_c C+w_i I
 
 ## 下一步
 
-先进入 [可点击式教程](tutorial/README.md)。完成离线课程后，再按照 [无人机数据迁移指南](docs/03_uav_dataset_adapter.md) 接入真实数据。优先保证坐标系、采样率、序列划分和单位正确，然后再接入任何大模型。
+先进入 [Notebook 分块课程](notebooks/README.md)。完成离线课程后，再按照 [无人机数据迁移指南](docs/03_uav_dataset_adapter.md) 接入真实数据。优先保证坐标系、采样率、序列划分和单位正确，然后再接入任何大模型。
